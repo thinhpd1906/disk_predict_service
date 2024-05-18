@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "corsheaders",
-    'django_crontab',
+    'django_cron',
     # 'django.contrib.admin',
     # 'django.contrib.auth',
     # 'django.contrib.contenttypes',
@@ -136,6 +136,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
-CRONJOBS = [
-    ('*/10 * * * *', 'core.utils.create_test_entry'),
+CRON_CLASSES = [
+    "core.utils.MyCronJob",
 ]
+
+# CRONJOBS = [
+#     # Example: Run a job every day at midnight
+#     ('1 * * * *', 'core.utils.MyCronJob'),
+# ]
